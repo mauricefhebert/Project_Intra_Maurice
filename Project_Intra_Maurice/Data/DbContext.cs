@@ -64,7 +64,7 @@ namespace Project_Intra_Maurice.Data
                     Platform = "Android",
                     Type = "Téléphone",
                     Prix = "$1200",
-                    ImageURL = "http://assets.stickpng.com/thumbs/6220b2be912013c51947f9db.png"
+                    ImageURL = "https://d124ep1ou7ef1k.cloudfront.net/wp-content/uploads/2021/01/306x240-1.jpg"
                 };
                 await database.InsertAsync(smartDevice);
                 smartDevice = new SmartDevice()

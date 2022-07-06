@@ -38,7 +38,6 @@
             <Style x:Key="FrameStyle" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{StaticResource Main}" />
                 <Setter Property="CornerRadius" Value="5" />
-                <Setter Property="IsClippedToBounds" Value="true" />
                 <Setter Property="HasShadow" Value="True" />
             </Style>
 

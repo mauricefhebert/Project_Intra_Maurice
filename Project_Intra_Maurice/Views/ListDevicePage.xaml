@@ -13,39 +13,41 @@
             <CollectionView ItemsSource="{Binding SmartDevices}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Style="{StaticResource FrameStyle}">
-                            <Grid ColumnDefinitions="1*, 1*, 1*" RowDefinitions="auto, 1*, auto">
-                                <Image
-                                    Grid.RowSpan="3"
-                                    Grid.Column="0"
-                                    Source="{Binding ImageURL}"
-                                    Style="{StaticResource CardImageStyle}" />
-                                <Label
-                                    Grid.Row="0"
-                                    Grid.Column="1"
-                                    Grid.ColumnSpan="2"
-                                    Style="{StaticResource CardTitleStyle}">
-                                    <MultiBinding StringFormat="{}{0} Par {1}">
-                                        <Binding Path="Modele" />
-                                        <Binding Path="Farbiquant" />
-                                    </MultiBinding>
-                                </Label>
-                                <Label
-                                    Grid.Row="1"
-                                    Grid.Column="1"
-                                    Text="{Binding Platform, StringFormat='Platform: {0}'}" />
-                                <Label
-                                    Grid.Row="2"
-                                    Grid.Column="1"
-                                    Style="{StaticResource CardPriceStyle}"
-                                    Text="{Binding Prix}" />
-                                <Button
-                                    Grid.Row="2"
-                                    Grid.Column="2"
-                                    Style="{StaticResource ButtonStyle}"
-                                    Text="Ajouter au panier" />
-                            </Grid>
-                        </Frame>
+                        <StackLayout Padding="8" Spacing="20">
+                            <Frame Style="{StaticResource FrameStyle}">
+                                <Grid ColumnDefinitions="1*, 1*, 1*" RowDefinitions="auto, 1*, auto">
+                                    <Image
+                                        Grid.RowSpan="3"
+                                        Grid.Column="0"
+                                        Source="{Binding ImageURL}"
+                                        Style="{StaticResource CardImageStyle}" />
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Grid.ColumnSpan="2"
+                                        Style="{StaticResource CardTitleStyle}">
+                                        <MultiBinding StringFormat="{}{0} Par {1}">
+                                            <Binding Path="Modele" />
+                                            <Binding Path="Farbiquant" />
+                                        </MultiBinding>
+                                    </Label>
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Text="{Binding Platform, StringFormat='Platform: {0}'}" />
+                                    <Label
+                                        Grid.Row="2"
+                                        Grid.Column="1"
+                                        Style="{StaticResource CardPriceStyle}"
+                                        Text="{Binding Prix}" />
+                                    <Button
+                                        Grid.Row="2"
+                                        Grid.Column="2"
+                                        Style="{StaticResource ButtonStyle}"
+                                        Text="Ajouter au panier" />
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
