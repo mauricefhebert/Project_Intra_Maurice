@@ -24,9 +24,9 @@
         <Tab
             Title="Panier"
             badge:Badge.BackgroundColor="Red"
-            badge:Badge.Text="{Binding PanierContentsList.Count}"
+            badge:Badge.Text="{Binding Counter}"
             badge:Badge.TextColor="Black"
-            x:DataType="viewModel:PanierViewModel"
+            x:DataType="viewModel:AppShellViewModel"
             Icon="cart.ico">
             <ShellContent ContentTemplate="{DataTemplate local:PanierPage}" />
         </Tab>

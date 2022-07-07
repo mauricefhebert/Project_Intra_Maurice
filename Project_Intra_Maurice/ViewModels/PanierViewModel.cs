@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using System.Linq;
 
 namespace Project_Intra_Maurice.ViewModels
 {
@@ -42,7 +43,6 @@ namespace Project_Intra_Maurice.ViewModels
             LoadItem();
         }
 
-        //Permet l'utilisation de PropertyChanged sans specifier la proprieter a changer
         public void OnProperyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

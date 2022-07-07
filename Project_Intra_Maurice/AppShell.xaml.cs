@@ -9,9 +9,8 @@ using Xamarin.Forms;
 
 namespace Project_Intra_Maurice
 {
-    public partial class AppShell : Shell, INotifyPropertyChanged
+    public partial class AppShell : Shell
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public AppShell()
         {
@@ -21,12 +20,8 @@ namespace Project_Intra_Maurice
             Routing.RegisterRoute(nameof(TabletteDevicePage), typeof(TabletteDevicePage));
             Routing.RegisterRoute(nameof(MontreIntelligentePage), typeof(MontreIntelligentePage));
             Routing.RegisterRoute(nameof(PanierPage), typeof(PanierPage));
-            this.BindingContext = new PanierViewModel();
-        }
 
-        public void OnProperyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            this.BindingContext = new AppShellViewModel();
         }
     }
 }

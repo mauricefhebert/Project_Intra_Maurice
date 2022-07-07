@@ -11,11 +11,10 @@ using Xamarin.Forms;
 
 namespace Project_Intra_Maurice.ViewModels
 {
-    internal class MontreIntelligenteDeviceViewModel : INotifyPropertyChanged
+    internal class MontreIntelligenteDeviceViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<SmartDevice> SmartDevices { get; set; }
-        public ICommand AddItemToCartCmd { get; private set; }
+        public Command AddItemToCartCmd { get; private set; }
 
         public MontreIntelligenteDeviceViewModel()
         {
@@ -26,11 +25,6 @@ namespace Project_Intra_Maurice.ViewModels
         private void AddItemToCart(object obj)
         {
             App.panier.AddProduct(obj as SmartDevice);
-        }
-
-        public void OnProperyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private async void LoadItem()
