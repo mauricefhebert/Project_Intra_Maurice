@@ -2,6 +2,7 @@
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
@@ -106,46 +107,54 @@ namespace Project_Intra_Maurice.Data
 
         public Task<List<SmartDevice>> GetAllAsync()
         {
-            //Lire toutes les taches.
             return database.Table<SmartDevice>().ToListAsync();
         }
 
         public Task<List<SmartDevice>> GetAllByTypeAsync(string type)
         {
-            //Lire toutes les taches.
             return database.Table<SmartDevice>().Where(x => x.Type == type).ToListAsync();
         }
 
         public Task<SmartDevice> GetByIdAsync(int id)
         {
-            // Lire une tache spécifique avec son id.
             return database.Table<SmartDevice>().Where(i => i.Id == id).FirstOrDefaultAsync();
-            // utiliser la methode GetAsync a la place du Table.Where
         }
 
         public Task<int> InsertAsync(SmartDevice smartDevice)
         {
-            // insérer une nouvelle tache
             return database.InsertAsync(smartDevice);
         }
 
-        //Delete those method later if i don't use them
         public Task<int> UpdateAsync(SmartDevice smartDevice)
         {
-            // mettre à jours une tache existante.
             return database.UpdateAsync(smartDevice);
         }
 
         public Task<int> DeleteAsync(SmartDevice smartDevice)
         {
-            // supprimer une tache existante
             return database.DeleteAsync(smartDevice);
         }
 
         public Task<int> DeleteAsyncById(int id)
         {
-            // supprimer une tache existante par le id
             return database.DeleteAsync(id);
+        }
+
+        public async void LoadItem(ObservableCollection<SmartDevice> collection, string type)
+        {
+            try
+            {
+                collection.Clear();
+                var items = await GetAllByTypeAsync(type);
+                foreach (var item in items)
+                {
+                    collection.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
     }
 }

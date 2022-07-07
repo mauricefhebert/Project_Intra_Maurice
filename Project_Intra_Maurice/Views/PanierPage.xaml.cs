@@ -24,7 +24,7 @@ namespace Project_Intra_Maurice.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            this.viewModel.RefreshList();
+            this.viewModel.LoadItem();
             this.BindingContext = null;
             this.BindingContext = viewModel;
         }

@@ -12,10 +12,8 @@ using System.Linq;
 
 namespace Project_Intra_Maurice.ViewModels
 {
-    internal class PanierViewModel : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged;
-        
+    internal class PanierViewModel : BaseViewModel
+    {  
         private ObservableCollection<SmartDevice> panierList;
         public ObservableCollection<SmartDevice> PanierContentsList
         {
@@ -23,7 +21,7 @@ namespace Project_Intra_Maurice.ViewModels
             set
             {
                 this.panierList = value;
-                OnProperyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -43,32 +41,17 @@ namespace Project_Intra_Maurice.ViewModels
             LoadItem();
         }
 
-        public void OnProperyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private void LoadItem()
+        public void LoadItem()
         {
             try
             {
                 this.PanierContentsList.Clear();
-                var items = App.panier.GetContent();
-                foreach (var item in items)
-                {
-                    this.PanierContentsList.Add(item);
-                }
+                App.panier.GetContent().ForEach(x => this.PanierContentsList.Add(x));
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
         }
-
-        public void RefreshList()
-        {
-            LoadItem();
-        }
-
     }
 }
