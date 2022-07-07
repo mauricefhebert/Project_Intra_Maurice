@@ -6,22 +6,24 @@
     xmlns:local="clr-namespace:Project_Intra_Maurice.Views"
     xmlns:plugin="clr-namespace:Plugin.Badge.Abstractions;assembly=Plugin.Badge.Abstractions"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:badge="clr-namespace:Xam.Shell.Badge;assembly=Xam.Shell.Badge"
+    xmlns:viewModel="clr-namespace:Project_Intra_Maurice.ViewModels"
     Title="Project_Intra_Maurice">
 
     <TabBar>
-        <ShellContent
-            Title="Accueil"
-            ContentTemplate="{DataTemplate local:AccueilPage}"
-            Icon="home.ico" />
-        <ShellContent
-            Title="Magasiner"
-            ContentTemplate="{DataTemplate local:ItemsPage}"
-            Icon="store.ico" />
-        <ShellContent
-            Title="Panier"
-            plugin:TabBadge.BadgeColor="Red"
-            plugin:TabBadge.BadgeText="0"
-            ContentTemplate="{DataTemplate local:PanierPage}"
-            Icon="cart.ico" />
+        <Tab Title="Accueil" Icon="home.ico">
+            <ShellContent ContentTemplate="{DataTemplate local:AccueilPage}" />
+        </Tab>
+
+        <Tab Title="Magasiner" Icon="store.ico">
+            <ShellContent Title="Telephone" ContentTemplate="{DataTemplate local:TelephoneDevicePage}"  />
+            <ShellContent Title="Tabelette" ContentTemplate="{DataTemplate local:TabletteDevicePage}" />
+            <ShellContent Title="Montre Intelligente" ContentTemplate="{DataTemplate local:MontreIntelligentePage}"  />
+        </Tab>
+
+        <Tab x:DataType="viewModel:PanierViewModel" Title="Panier" Icon="cart.ico" badge:Badge.BackgroundColor="Red" badge:Badge.Text="{Binding PanierContentsList.Count}" badge:Badge.TextColor="Black">
+            <ShellContent ContentTemplate="{DataTemplate local:PanierPage}"/>
+        </Tab>
+
     </TabBar>
 </Shell>

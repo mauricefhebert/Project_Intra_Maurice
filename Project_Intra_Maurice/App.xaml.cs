@@ -15,9 +15,9 @@ namespace Project_Intra_Maurice
         public App()
         {
             InitializeComponent();
+            panier = new Panier();
             MainPage = new AppShell();
             context = new DbContext("DbSmartDevice.db3");
-            panier = new Panier();
         }
 
         protected override void OnStart()

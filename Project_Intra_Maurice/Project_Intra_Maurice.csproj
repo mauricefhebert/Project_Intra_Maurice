@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Plugin.Badge" Version="2.3.1" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="Xam.Shell.Badge" Version="1.0.10" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.2" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
@@ -20,16 +21,25 @@
     <Compile Update="Views\PanierPage.xaml.cs">
       <DependentUpon>PanierPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ItemsPage.xaml.cs">
+    <Compile Update="Views\TabletteDevicePage.xaml.cs">
+      <DependentUpon>TabletteDevicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TelephoneDevicePage.xaml.cs">
       <DependentUpon>ItemsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\MontreIntelligentePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\PanierPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AccueilPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TabletteDevicePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

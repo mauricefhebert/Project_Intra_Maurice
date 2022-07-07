@@ -110,6 +110,12 @@ namespace Project_Intra_Maurice.Data
             return database.Table<SmartDevice>().ToListAsync();
         }
 
+        public Task<List<SmartDevice>> GetAllByTypeAsync(string type)
+        {
+            //Lire toutes les taches.
+            return database.Table<SmartDevice>().Where(x => x.Type == type).ToListAsync();
+        }
+
         public Task<SmartDevice> GetByIdAsync(int id)
         {
             // Lire une tache spécifique avec son id.

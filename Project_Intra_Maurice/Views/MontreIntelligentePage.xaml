@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_Intra_Maurice.Views.MontreIntelligentePage"
+             xmlns:viewModel="clr-namespace:Project_Intra_Maurice.ViewModels">
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding SmartDevices}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="8" Spacing="20">
+                            <Frame Style="{StaticResource FrameStyle}">
+                                <Grid ColumnDefinitions="1*, 1*, 1*" RowDefinitions="1*, 1*, 1*">
+                                    <Image
+                                        Grid.RowSpan="3"
+                                        Grid.Column="0"
+                                        Source="{Binding ImageURL}"
+                                        Style="{StaticResource CardImageStyle}" />
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Grid.ColumnSpan="2"
+                                        Style="{StaticResource CardTitleStyle}">
+                                        <MultiBinding StringFormat="{}{0} Par {1}">
+                                            <Binding Path="Modele" />
+                                            <Binding Path="Farbiquant" />
+                                        </MultiBinding>
+                                    </Label>
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Text="{Binding Platform, StringFormat='Platform: {0}'}" />
+                                    <Label
+                                        Grid.Row="2"
+                                        Grid.Column="1"
+                                        Style="{StaticResource CardPriceStyle}"
+                                        Text="{Binding Prix, StringFormat='Prix: ${0}'}" />
+                                </Grid>
+                            </Frame>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:MontreIntelligenteDeviceViewModel}}, Path=AddItemToCartCmd}"
+                                        CommandParameter="{Binding .}" 
+                                        NumberOfTapsRequired="2"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

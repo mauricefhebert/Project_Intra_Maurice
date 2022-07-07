@@ -47,7 +47,7 @@
             <Style x:Key="CardImageStyle" TargetType="Image">
                 <Setter Property="WidthRequest" Value="100" />
                 <Setter Property="HeightRequest" Value="100" />
-                <Setter Property="Aspect" Value="AspectFill" />
+                <Setter Property="Aspect" Value="AspectFit" />
             </Style>
 
             <Style x:Key="CardTitleStyle" TargetType="Label">
