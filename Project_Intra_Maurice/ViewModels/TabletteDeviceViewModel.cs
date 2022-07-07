@@ -13,8 +13,8 @@ namespace Project_Intra_Maurice.ViewModels
 {
     internal class TabletteDeviceViewModel : BaseViewModel
     {
-        public ObservableCollection<SmartDevice> SmartDevices { get; set; }
-        public ICommand AddItemToCartCmd { get; private set; }
+        public ObservableCollection<SmartDevice> SmartDevices { get; private set; }
+        public Command AddItemToCartCmd { get; private set; }
 
         public TabletteDeviceViewModel()
         {

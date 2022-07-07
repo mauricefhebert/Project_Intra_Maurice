@@ -13,7 +13,7 @@ namespace Project_Intra_Maurice.ViewModels
 {
     public class TelephoneDeviceViewModel : BaseViewModel
     {
-        public ObservableCollection<SmartDevice> SmartDevices { get; set; }
+        public ObservableCollection<SmartDevice> SmartDevices { get; private set; }
         public Command AddItemToCartCmd { get; private set; }
 
         public TelephoneDeviceViewModel()

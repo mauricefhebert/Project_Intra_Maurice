@@ -9,21 +9,13 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using System.Linq;
+using Xamarin.Forms.Internals;
 
 namespace Project_Intra_Maurice.ViewModels
 {
     internal class PanierViewModel : BaseViewModel
     {  
-        private ObservableCollection<SmartDevice> panierList;
-        public ObservableCollection<SmartDevice> PanierContentsList
-        {
-            get => panierList;
-            set
-            {
-                this.panierList = value;
-                OnPropertyChanged();
-            }
-        }
+        public ObservableCollection<SmartDevice> PanierContentsList { get; private set; }
 
         public Command RemoveItemFromCartCmd { get; private set; }
 
@@ -35,8 +27,11 @@ namespace Project_Intra_Maurice.ViewModels
             
         }
 
-        private void RemoveItemFromCart(object obj)
+        private async void RemoveItemFromCart(object obj)
         {
+            var res = await Application.Current.MainPage.DisplayAlert("Confirmation", $"Voulez-vous vraiment supprimer {(obj as SmartDevice).Modele}?", "Non", "Oui");
+            if (!res) return;
+                
             App.panier.RemoveProduct((obj as SmartDevice).Id);
             LoadItem();
         }

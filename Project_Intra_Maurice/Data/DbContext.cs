@@ -29,10 +29,10 @@ namespace Project_Intra_Maurice.Data
             // creer une table dans la base de donnee si elle n'existe pas et initialise la connexion
             var res = database.CreateTableAsync<SmartDevice>().Result;
             if (res == CreateTableResult.Created)
-                SeedDatabase();
+                SeedDatabaseAsync();
         }
 
-        private async void SeedDatabase()
+        private async void SeedDatabaseAsync()
         {
             try
             {
@@ -105,39 +105,39 @@ namespace Project_Intra_Maurice.Data
             }
         }
 
-        public Task<List<SmartDevice>> GetAllAsync()
+        public async Task<List<SmartDevice>> GetAllAsync()
         {
-            return database.Table<SmartDevice>().ToListAsync();
+            return await database.Table<SmartDevice>().ToListAsync();
         }
 
-        public Task<List<SmartDevice>> GetAllByTypeAsync(string type)
+        public async Task<List<SmartDevice>> GetAllByTypeAsync(string type)
         {
-            return database.Table<SmartDevice>().Where(x => x.Type == type).ToListAsync();
+            return await database.Table<SmartDevice>().Where(x => x.Type == type).ToListAsync();
         }
 
-        public Task<SmartDevice> GetByIdAsync(int id)
+        public async Task<SmartDevice> GetByIdAsync(int id)
         {
-            return database.Table<SmartDevice>().Where(i => i.Id == id).FirstOrDefaultAsync();
+            return await database.Table<SmartDevice>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
-        public Task<int> InsertAsync(SmartDevice smartDevice)
+        public async Task<int> InsertAsync(SmartDevice smartDevice)
         {
-            return database.InsertAsync(smartDevice);
+            return await database.InsertAsync(smartDevice);
         }
 
-        public Task<int> UpdateAsync(SmartDevice smartDevice)
+        public async Task<int> UpdateAsync(SmartDevice smartDevice)
         {
-            return database.UpdateAsync(smartDevice);
+            return await database.UpdateAsync(smartDevice);
         }
 
-        public Task<int> DeleteAsync(SmartDevice smartDevice)
+        public async Task<int> DeleteAsync(SmartDevice smartDevice)
         {
-            return database.DeleteAsync(smartDevice);
+            return await database.DeleteAsync(smartDevice);
         }
 
-        public Task<int> DeleteAsyncById(int id)
+        public async Task<int> DeleteAsyncById(int id)
         {
-            return database.DeleteAsync(id);
+            return await database.DeleteAsync(id);
         }
 
         public async void LoadItem(ObservableCollection<SmartDevice> collection, string type)

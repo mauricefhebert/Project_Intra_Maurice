@@ -13,7 +13,7 @@ namespace Project_Intra_Maurice.ViewModels
 {
     internal class MontreIntelligenteDeviceViewModel : BaseViewModel
     {
-        public ObservableCollection<SmartDevice> SmartDevices { get; set; }
+        public ObservableCollection<SmartDevice> SmartDevices { get; private set; }
         public Command AddItemToCartCmd { get; private set; }
 
         public MontreIntelligenteDeviceViewModel()
