@@ -11,7 +11,9 @@ namespace Project_Intra_Maurice
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ListDevicePage), typeof(ListDevicePage));
+            Routing.RegisterRoute(nameof(AccueilPage), typeof(AccueilPage));
+            Routing.RegisterRoute(nameof(ItemsPage), typeof(ItemsPage));
+            Routing.RegisterRoute(nameof(PanierPage), typeof(PanierPage));
         }
 
     }

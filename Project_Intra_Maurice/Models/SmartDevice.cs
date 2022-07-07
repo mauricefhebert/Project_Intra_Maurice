@@ -13,7 +13,7 @@ namespace Project_Intra_Maurice.Models
         public string Farbiquant { get; set; }
         public string Type { get; set; }
         public string Platform { get; set; }
-        public string Prix { get; set; }
+        public double Prix { get; set; }
         public string ImageURL { get; set; }
     }
 }

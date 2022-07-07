@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
-    x:Class="Project_Intra_Maurice.Views.ListDevicePage"
+    x:Class="Project_Intra_Maurice.Views.ItemsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
@@ -15,9 +15,9 @@
                     <DataTemplate>
                         <StackLayout Padding="8" Spacing="20">
                             <Frame Style="{StaticResource FrameStyle}">
-                                <Grid ColumnDefinitions="1*, 1*, 1*" RowDefinitions="auto, 1*, auto">
+                                <Grid ColumnDefinitions="1*, 1*, 1*" RowDefinitions="1*, 1*, 1*, 40">
                                     <Image
-                                        Grid.RowSpan="3"
+                                        Grid.RowSpan="4"
                                         Grid.Column="0"
                                         Source="{Binding ImageURL}"
                                         Style="{StaticResource CardImageStyle}" />
@@ -39,10 +39,13 @@
                                         Grid.Row="2"
                                         Grid.Column="1"
                                         Style="{StaticResource CardPriceStyle}"
-                                        Text="{Binding Prix}" />
+                                        Text="{Binding Prix, StringFormat='Prix: ${0}'}" />
                                     <Button
-                                        Grid.Row="2"
-                                        Grid.Column="2"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Grid.ColumnSpan="2"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:ItemsViewModel}}, Path=AddItemToCartCmd}"
+                                        CommandParameter="{Binding .}"
                                         Style="{StaticResource ButtonStyle}"
                                         Text="Ajouter au panier" />
                                 </Grid>

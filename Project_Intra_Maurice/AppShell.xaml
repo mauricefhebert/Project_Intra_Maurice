@@ -4,20 +4,24 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Project_Intra_Maurice.Views"
+    xmlns:plugin="clr-namespace:Plugin.Badge.Abstractions;assembly=Plugin.Badge.Abstractions"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     Title="Project_Intra_Maurice">
 
     <TabBar>
         <ShellContent
             Title="Accueil"
-            ContentTemplate="{DataTemplate local:ListDevicePage}"
+            ContentTemplate="{DataTemplate local:AccueilPage}"
             Icon="home.ico" />
         <ShellContent
             Title="Magasiner"
-            ContentTemplate="{DataTemplate local:ListDevicePage}"
+            ContentTemplate="{DataTemplate local:ItemsPage}"
             Icon="store.ico" />
         <ShellContent
             Title="Panier"
-            ContentTemplate="{DataTemplate local:ListDevicePage}"
+            plugin:TabBadge.BadgeColor="Red"
+            plugin:TabBadge.BadgeText="0"
+            ContentTemplate="{DataTemplate local:PanierPage}"
             Icon="cart.ico" />
     </TabBar>
 </Shell>

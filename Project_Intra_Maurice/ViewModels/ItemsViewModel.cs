@@ -11,17 +11,24 @@ using Xamarin.Forms;
 
 namespace Project_Intra_Maurice.ViewModels
 {
-    public class ListDeviceViewModel : INotifyPropertyChanged
+    public class ItemsViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ObservableCollection<SmartDevice> SmartDevices { get; set; }
+        public ICommand AddItemToCartCmd { get; private set; }
 
-        public ListDeviceViewModel()
+        public ItemsViewModel()
         {
             this.SmartDevices = new ObservableCollection<SmartDevice>();
+            this.AddItemToCartCmd = new Command(AddItemToCart);
         }
-        
+
+        private void AddItemToCart(object obj)
+        {
+            App.panier.AddProduct(obj as SmartDevice);
+        }
+
         //Permet l'utilisation de PropertyChanged sans specifier la proprieter a changer
         public void OnProperyChanged([CallerMemberName] string propertyName = null)
         {

@@ -43,7 +43,7 @@ namespace Project_Intra_Maurice.Data
                     Farbiquant = "Apple",
                     Platform = "IOS",
                     Type = "Téléphone",
-                    Prix = "$1300",
+                    Prix = 1300,
                     ImageURL = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-pro-silver-select?wid=940&hei=1112&fmt=png-alpha&.v=1645552345849"
                 };
                 await database.InsertAsync(smartDevice);
@@ -53,7 +53,7 @@ namespace Project_Intra_Maurice.Data
                     Farbiquant = "Google",
                     Platform = "Android",
                     Type = "Téléphone",
-                    Prix = "$1000",
+                    Prix = 1000,
                     ImageURL = "https://9to5google.com/wp-content/uploads/sites/4/2020/09/Eir8AzbWkAMQPaG.png"
                 };
                 await database.InsertAsync(smartDevice);
@@ -63,8 +63,8 @@ namespace Project_Intra_Maurice.Data
                     Farbiquant = "Samsung",
                     Platform = "Android",
                     Type = "Téléphone",
-                    Prix = "$1200",
-                    ImageURL = "https://d124ep1ou7ef1k.cloudfront.net/wp-content/uploads/2021/01/306x240-1.jpg"
+                    Prix = 1200,
+                    ImageURL = "https://the-hub.cellucity.co.za/wp-content/uploads/2022/01/Samsung-galaxy-S21-FE-in-Olive-green.jpg"
                 };
                 await database.InsertAsync(smartDevice);
                 smartDevice = new SmartDevice()
@@ -73,7 +73,7 @@ namespace Project_Intra_Maurice.Data
                     Farbiquant = "Motorola",
                     Platform = "Android",
                     Type = "Téléphone",
-                    Prix = "$800",
+                    Prix = 800,
                     ImageURL = "https://motorolacaen.vtexassets.com/arquivos/ids/156824-1200-auto?width=1200&height=auto&aspect=true"
                 };
                 await database.InsertAsync(smartDevice);
@@ -83,7 +83,7 @@ namespace Project_Intra_Maurice.Data
                     Farbiquant = "Apple",
                     Platform = "IOS",
                     Type = "Montre Intelligente",
-                    Prix = "$959",
+                    Prix = 959,
                     ImageURL = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ML6H3ref_VW_34FR+watch-45-stainless-gold-cell-7s_VW_34FR_WF_CO?wid=700&hei=700&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1630364962000%2C1631661863000"
                 };
                 await database.InsertAsync(smartDevice);
@@ -93,7 +93,7 @@ namespace Project_Intra_Maurice.Data
                     Farbiquant = "Apple",
                     Platform = "IOS",
                     Type = "Tablette",
-                    Prix = "$1399",
+                    Prix = 1399,
                     ImageURL = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-pro-12-11-select-202104?wid=545&hei=550&fmt=jpeg&qlt=95&.v=1617067380000"
                 };
                 await database.InsertAsync(smartDevice);
@@ -122,6 +122,8 @@ namespace Project_Intra_Maurice.Data
             // insérer une nouvelle tache
             return database.InsertAsync(smartDevice);
         }
+
+        //Delete those method later if i don't use them
         public Task<int> UpdateAsync(SmartDevice smartDevice)
         {
             // mettre à jours une tache existante.

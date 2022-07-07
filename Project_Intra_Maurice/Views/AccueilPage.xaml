@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Project_Intra_Maurice.Views.AccueilPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <StackLayout
+            Margin="20"
+            HorizontalOptions="Center"
+            Spacing="30">
+            <Image Source="https://i.pinimg.com/736x/6c/84/5a/6c845a451c71c0919ed97a68c90e086e.jpg" />
+            <StackLayout>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Title"
+                    Text="Telus" />
+                <Label FontSize="Subtitle" Text="Créons un future meilleur" />
+            </StackLayout>
+            <StackLayout>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Body"
+                    Text="Nous Contacter" />
+                <Label Text="342 Freshwater Road St. John's" />
+                <Label Text="NEWFOUNDLAND AND LABRADOR A1B 1C2 CA" />
+                <Label Text="+1 709-576-4100" />
+                <Label Text="Telus@support.com" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

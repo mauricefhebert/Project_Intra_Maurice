@@ -8,22 +8,21 @@ using Xamarin.Forms.Xaml;
 
 namespace Project_Intra_Maurice.Views
 {
-    public partial class ListDevicePage : ContentPage
+    public partial class ItemsPage : ContentPage
     {
-        ListDeviceViewModel viewModel;
-        public ListDevicePage()
+        ItemsViewModel viewModel;
+        public ItemsPage()
         {
             InitializeComponent();
-            viewModel = new ListDeviceViewModel();
+            viewModel = new ItemsViewModel();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            viewModel.RefreshList();
             BindingContext = null;
             BindingContext = this.viewModel;
+            viewModel.RefreshList();
         }
     }
 }
