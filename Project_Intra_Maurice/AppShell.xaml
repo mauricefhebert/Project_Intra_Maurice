@@ -3,11 +3,11 @@
     x:Class="Project_Intra_Maurice.AppShell"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:badge="clr-namespace:Xam.Shell.Badge;assembly=Xam.Shell.Badge"
     xmlns:local="clr-namespace:Project_Intra_Maurice.Views"
     xmlns:plugin="clr-namespace:Plugin.Badge.Abstractions;assembly=Plugin.Badge.Abstractions"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-    xmlns:badge="clr-namespace:Xam.Shell.Badge;assembly=Xam.Shell.Badge"
     xmlns:viewModel="clr-namespace:Project_Intra_Maurice.ViewModels"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     Title="Project_Intra_Maurice">
 
     <TabBar>
@@ -16,13 +16,19 @@
         </Tab>
 
         <Tab Title="Magasiner" Icon="store.ico">
-            <ShellContent Title="Telephone" ContentTemplate="{DataTemplate local:TelephoneDevicePage}"  />
+            <ShellContent Title="Telephone" ContentTemplate="{DataTemplate local:TelephoneDevicePage}" />
             <ShellContent Title="Tabelette" ContentTemplate="{DataTemplate local:TabletteDevicePage}" />
-            <ShellContent Title="Montre Intelligente" ContentTemplate="{DataTemplate local:MontreIntelligentePage}"  />
+            <ShellContent Title="Montre Intelligente" ContentTemplate="{DataTemplate local:MontreIntelligentePage}" />
         </Tab>
 
-        <Tab x:DataType="viewModel:PanierViewModel" Title="Panier" Icon="cart.ico" badge:Badge.BackgroundColor="Red" badge:Badge.Text="{Binding PanierContentsList.Count}" badge:Badge.TextColor="Black">
-            <ShellContent ContentTemplate="{DataTemplate local:PanierPage}"/>
+        <Tab
+            Title="Panier"
+            badge:Badge.BackgroundColor="Red"
+            badge:Badge.Text="{Binding PanierContentsList.Count}"
+            badge:Badge.TextColor="Black"
+            x:DataType="viewModel:PanierViewModel"
+            Icon="cart.ico">
+            <ShellContent ContentTemplate="{DataTemplate local:PanierPage}" />
         </Tab>
 
     </TabBar>

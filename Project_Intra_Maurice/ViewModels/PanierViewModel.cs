@@ -40,7 +40,6 @@ namespace Project_Intra_Maurice.ViewModels
         {
             App.panier.RemoveProduct((obj as SmartDevice).Id);
             LoadItem();
-            OnProperyChanged();
         }
 
         //Permet l'utilisation de PropertyChanged sans specifier la proprieter a changer

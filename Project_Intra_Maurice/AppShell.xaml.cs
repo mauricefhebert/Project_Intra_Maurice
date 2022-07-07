@@ -16,18 +16,17 @@ namespace Project_Intra_Maurice
         public AppShell()
         {
             InitializeComponent();
-            this.BindingContext = new PanierViewModel();
             Routing.RegisterRoute(nameof(AccueilPage), typeof(AccueilPage));
             Routing.RegisterRoute(nameof(TelephoneDevicePage), typeof(TelephoneDevicePage));
             Routing.RegisterRoute(nameof(TabletteDevicePage), typeof(TabletteDevicePage));
             Routing.RegisterRoute(nameof(MontreIntelligentePage), typeof(MontreIntelligentePage));
             Routing.RegisterRoute(nameof(PanierPage), typeof(PanierPage));
+            this.BindingContext = new PanierViewModel();
         }
 
         public void OnProperyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }
