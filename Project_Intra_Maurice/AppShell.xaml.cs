@@ -11,7 +11,6 @@ namespace Project_Intra_Maurice
 {
     public partial class AppShell : Shell
     {
-
         public AppShell()
         {
             InitializeComponent();

@@ -24,13 +24,13 @@ namespace Project_Intra_Maurice.Models
         public void AddProduct(SmartDevice product)
         {
             this.content.Add(product);
-            int data = this.CountPanier();
-            MessagingCenter.Send(this, "update counter", data);
+            MessagingCenter.Send(this, "update counter", this.CountPanier());
         }
         public void RemoveProduct(int id)
         {
             SmartDevice product = this.content.FirstOrDefault(p => p.Id == id);
             this.content.Remove(product);
+            MessagingCenter.Send(this, "update counter", this.CountPanier());
         }
         public void ClearPanier()
         {

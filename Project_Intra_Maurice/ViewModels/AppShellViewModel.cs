@@ -10,18 +10,15 @@ namespace Project_Intra_Maurice.ViewModels
 {
     internal class AppShellViewModel : BaseViewModel
     {
-        private int counter = 0;
-        public int Counter
+        public int Counter { get; set; }
+
+        public AppShellViewModel()
         {
-            get { return counter; }
-            set 
-            { 
-                MessagingCenter.Subscribe<Panier, int>(this, "update counter", (x, data) =>
-                {
-                    counter = x.CountPanier();
-                    OnPropertyChanged(nameof(Counter));
-                });
-            }
+            MessagingCenter.Subscribe<Panier, int>(this, "update counter", (x, data) =>
+            {
+                Counter = x.CountPanier();
+                OnPropertyChanged(nameof(Counter));
+            });
         }
     }
 }
