@@ -1,8 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Project_Intra_Maurice.Views.TabletteDevicePage"
-             xmlns:viewModel="clr-namespace:Project_Intra_Maurice.ViewModels">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="Project_Intra_Maurice.Views.TabletteDevicePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModel="clr-namespace:Project_Intra_Maurice.ViewModels">
     <ContentPage.Content>
         <StackLayout>
             <CollectionView ItemsSource="{Binding SmartDevices}">
@@ -39,9 +40,9 @@
                             </Frame>
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:TabletteDeviceViewModel}}, Path=AddItemToCartCmd}"
-                                        CommandParameter="{Binding .}" 
-                                        NumberOfTapsRequired="2"/>
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:TabletteDeviceViewModel}}, Path=AddItemToCartCmd}"
+                                    CommandParameter="{Binding .}"
+                                    NumberOfTapsRequired="2" />
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </DataTemplate>

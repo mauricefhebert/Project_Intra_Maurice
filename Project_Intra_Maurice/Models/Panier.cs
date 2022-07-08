@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Project_Intra_Maurice.Models
 {
@@ -23,6 +24,8 @@ namespace Project_Intra_Maurice.Models
         public void AddProduct(SmartDevice product)
         {
             this.content.Add(product);
+            int data = this.CountPanier();
+            MessagingCenter.Send(this, "update counter", data);
         }
         public void RemoveProduct(int id)
         {

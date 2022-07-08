@@ -26,7 +26,6 @@
             badge:Badge.BackgroundColor="Red"
             badge:Badge.Text="{Binding Counter}"
             badge:Badge.TextColor="Black"
-            x:DataType="viewModel:AppShellViewModel"
             Icon="cart.ico">
             <ShellContent ContentTemplate="{DataTemplate local:PanierPage}" />
         </Tab>

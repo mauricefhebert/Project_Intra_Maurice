@@ -45,9 +45,9 @@
                             </Frame>
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:TelephoneDeviceViewModel}}, Path=AddItemToCartCmd}"
-                                        CommandParameter="{Binding .}" 
-                                        NumberOfTapsRequired="2"/>
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:TelephoneDeviceViewModel}}, Path=AddItemToCartCmd}"
+                                    CommandParameter="{Binding .}"
+                                    NumberOfTapsRequired="2" />
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </DataTemplate>

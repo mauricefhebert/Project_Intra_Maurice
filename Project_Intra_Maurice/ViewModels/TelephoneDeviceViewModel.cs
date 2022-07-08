@@ -25,12 +25,11 @@ namespace Project_Intra_Maurice.ViewModels
         private void AddItemToCart(object obj)
         {
             App.panier.AddProduct(obj as SmartDevice);
-            
         }
 
-        public void RefreshList()
+        public async void RefreshList()
         {
-            App.Context.LoadItem(SmartDevices, "Téléphone");
+            await App.Context.LoadItem(SmartDevices, "Téléphone");
         }
 
     }
