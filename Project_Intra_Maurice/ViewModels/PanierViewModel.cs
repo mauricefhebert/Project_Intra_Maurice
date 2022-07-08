@@ -17,17 +17,7 @@ namespace Project_Intra_Maurice.ViewModels
     internal class PanierViewModel : BaseViewModel
     {  
         public ObservableCollection<SmartDevice> PanierContentsList { get; private set; }
-
-        private double total { get; set; }
-        public double Total
-        {
-            get { return total; }
-            set
-            {
-                total = value;
-                OnPropertyChanged();
-            }
-        }
+        public double Total { get; set; }
 
         public Command RemoveItemFromCartCmd { get; private set; }
 
@@ -44,6 +34,7 @@ namespace Project_Intra_Maurice.ViewModels
                 
             App.panier.RemoveProduct((obj as SmartDevice).Id);
             LoadItem();
+            
         }
 
         public void LoadItem()
@@ -52,7 +43,8 @@ namespace Project_Intra_Maurice.ViewModels
             {
                 this.PanierContentsList.Clear();
                 App.panier.GetContent().ForEach(x => this.PanierContentsList.Add(x));
-                Total = this.PanierContentsList.Sum(x => x.Prix);
+                Total = App.panier.GetTotal();
+                OnPropertyChanged(nameof(Total));
             }
             catch (Exception ex)
             {
