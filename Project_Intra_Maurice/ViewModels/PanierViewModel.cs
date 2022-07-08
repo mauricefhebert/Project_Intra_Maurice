@@ -18,7 +18,16 @@ namespace Project_Intra_Maurice.ViewModels
     {  
         public ObservableCollection<SmartDevice> PanierContentsList { get; private set; }
 
-        public double Total { get; private set; }
+        private double total { get; set; }
+        public double Total
+        {
+            get { return total; }
+            set
+            {
+                total = value;
+                OnPropertyChanged();
+            }
+        }
 
         public Command RemoveItemFromCartCmd { get; private set; }
 
@@ -26,8 +35,6 @@ namespace Project_Intra_Maurice.ViewModels
         {
             this.PanierContentsList = new ObservableCollection<SmartDevice>();
             this.RemoveItemFromCartCmd = new Command(RemoveItemFromCart);
-            this.PropertyChanged += (_, __) => RemoveItemFromCartCmd.ChangeCanExecute();
-            
         }
 
         private async void RemoveItemFromCart(object obj)
@@ -45,6 +52,7 @@ namespace Project_Intra_Maurice.ViewModels
             {
                 this.PanierContentsList.Clear();
                 App.panier.GetContent().ForEach(x => this.PanierContentsList.Add(x));
+                Total = this.PanierContentsList.Sum(x => x.Prix);
             }
             catch (Exception ex)
             {

@@ -8,15 +8,11 @@ namespace Project_Intra_Maurice.ViewModels
 {
     internal class AppShellViewModel : BaseViewModel
     {
-        private string counter = "1";
-        public string Counter
+        private int counter = 0;
+        public int Counter
         {
             get { return counter; }
-            set 
-            { 
-                counter = value;
-                OnPropertyChanged();
-            }
+            set { counter = value; OnPropertyChanged(); }
         }
     }
 }
