@@ -1,13 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Project_Intra_Maurice.Views.PanierPage"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             xmlns:viewModel="clr-namespace:Project_Intra_Maurice.ViewModels">
+<ContentPage
+    x:Class="Project_Intra_Maurice.Views.PanierPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModel="clr-namespace:Project_Intra_Maurice.ViewModels"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
     <StackLayout>
+        <StackLayout Margin="10" x:DataType="viewModel:PanierViewModel">
+            <Label
+                FontAttributes="Bold"
+                FontSize="Title"
+                HorizontalTextAlignment="Center"
+                Text="{Binding Total, StringFormat='Sous-total ${0}'}"
+                TextColor="#333" />
+            <Button Style="{StaticResource ButtonStyle}" Text="{Binding PanierContentsList.Count, StringFormat='Passer la commande ({0} article)'}" />
+        </StackLayout>
         <CollectionView ItemsSource="{Binding PanierContentsList}">
             <CollectionView.EmptyView>
-                <Label Text="Le panier est vide" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Title"/>
+                <Label
+                    FontSize="Title"
+                    HorizontalTextAlignment="Center"
+                    Text="Le panier est vide"
+                    VerticalTextAlignment="Center" />
             </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -15,37 +29,37 @@
                         <Frame Style="{StaticResource FrameStyle}">
                             <Grid ColumnDefinitions="1*, 1*, 1*" RowDefinitions="1*, 1*, 1*">
                                 <Image
-                                        Grid.Row="0"
-                                        Grid.RowSpan="3"
-                                        Grid.Column="0"
-                                        Source="{Binding ImageURL}"
-                                        Style="{StaticResource CardImageStyle}" />
+                                    Grid.Row="0"
+                                    Grid.RowSpan="3"
+                                    Grid.Column="0"
+                                    Source="{Binding ImageURL}"
+                                    Style="{StaticResource CardImageStyle}" />
                                 <Label
-                                        Grid.Row="0"
-                                        Grid.Column="1"
-                                        Grid.ColumnSpan="2"
-                                        Style="{StaticResource CardTitleStyle}">
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    Style="{StaticResource CardTitleStyle}">
                                     <MultiBinding StringFormat="{}{0} Par {1}">
                                         <Binding Path="Modele" />
                                         <Binding Path="Farbiquant" />
                                     </MultiBinding>
                                 </Label>
                                 <Label
-                                        Grid.Row="1"
-                                        Grid.Column="1"
-                                        Text="{Binding Platform, StringFormat='Platform: {0}'}" />
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{Binding Platform, StringFormat='Platform: {0}'}" />
                                 <Label
-                                        Grid.Row="2"
-                                        Grid.Column="1"
-                                        Style="{StaticResource CardPriceStyle}"
-                                        Text="{Binding Prix, StringFormat='Prix: ${0}'}" />
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Style="{StaticResource CardPriceStyle}"
+                                    Text="{Binding Prix, StringFormat='Prix: ${0}'}" />
                             </Grid>
                         </Frame>
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:PanierViewModel}}, Path=RemoveItemFromCartCmd}"
-                                        CommandParameter="{Binding .}" 
-                                        NumberOfTapsRequired="2"/>
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:PanierViewModel}}, Path=RemoveItemFromCartCmd}"
+                                CommandParameter="{Binding .}"
+                                NumberOfTapsRequired="2" />
                         </StackLayout.GestureRecognizers>
                     </StackLayout>
                 </DataTemplate>

@@ -140,7 +140,7 @@ namespace Project_Intra_Maurice.Data
             return await database.DeleteAsync(id);
         }
 
-        public async void LoadItem(ObservableCollection<SmartDevice> collection, string type)
+        public async Task LoadItem(ObservableCollection<SmartDevice> collection, string type)
         {
             try
             {

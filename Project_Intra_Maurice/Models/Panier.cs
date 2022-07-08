@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Project_Intra_Maurice.Models
 {
-    public class Panier
+    public class Panier : BaseViewModel
     {
         private ObservableCollection<SmartDevice> content;
         public Panier()
