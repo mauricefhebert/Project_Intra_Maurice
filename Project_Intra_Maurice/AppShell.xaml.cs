@@ -19,6 +19,7 @@ namespace Project_Intra_Maurice
             Routing.RegisterRoute(nameof(TabletteDevicePage), typeof(TabletteDevicePage));
             Routing.RegisterRoute(nameof(MontreIntelligentePage), typeof(MontreIntelligentePage));
             Routing.RegisterRoute(nameof(PanierPage), typeof(PanierPage));
+            Routing.RegisterRoute(nameof(FacturePage), typeof(FacturePage));
 
             this.BindingContext = new AppShellViewModel();
         }

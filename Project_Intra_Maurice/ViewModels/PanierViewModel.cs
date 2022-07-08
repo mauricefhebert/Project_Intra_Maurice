@@ -34,7 +34,6 @@ namespace Project_Intra_Maurice.ViewModels
                 
             App.panier.RemoveProduct((obj as SmartDevice).Id);
             LoadItem();
-            
         }
 
         public void LoadItem()
