@@ -30,6 +30,9 @@ namespace Project_Intra_Maurice.Data
             var res = database.CreateTableAsync<SmartDevice>().Result;
             if (res == CreateTableResult.Created)
                 SeedDatabaseAsync();
+
+            //Create the facture table
+            database.CreateTableAsync<Facture>();
         }
 
         private async void SeedDatabaseAsync()
@@ -138,6 +141,12 @@ namespace Project_Intra_Maurice.Data
         public async Task<int> DeleteAsyncById(int id)
         {
             return await database.DeleteAsync(id);
+        }
+
+        public async void InsertFactureAsync(Facture facture)
+        {
+            var rowChanged = await database.InsertAsync(facture);
+            await App.Current.MainPage.DisplayAlert("Row", $"{rowChanged}", "Ok");
         }
 
         public async Task LoadItem(ObservableCollection<SmartDevice> collection, string type)

@@ -1,12 +1,103 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Project_Intra_Maurice.Views.FacturePage">
+<ContentPage
+    x:Class="Project_Intra_Maurice.Views.FacturePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Margin="15">
+                <Label
+                    Padding="5,0,5,0"
+                    FontSize="Medium"
+                    Text="Prénom"
+                    TextColor="Black"
+                    VerticalTextAlignment="Center" />
+                <Frame
+                    Padding="5,0,5,0"
+                    CornerRadius="10"
+                    HasShadow="True"
+                    IsClippedToBounds="True">
+                    <Entry Text="{Binding Prenom}" />
+                </Frame>
+                <Label
+                    Padding="5,0,5,0"
+                    FontSize="Medium"
+                    Text="Nom"
+                    TextColor="Black"
+                    VerticalTextAlignment="Center" />
+                <Frame
+                    Padding="5,0,5,0"
+                    CornerRadius="10"
+                    HasShadow="True"
+                    IsClippedToBounds="True">
+                    <Entry Text="{Binding Nom}" />
+                </Frame>
+                <Label
+                    Padding="5,0,5,0"
+                    FontSize="Medium"
+                    Text="Adresse"
+                    TextColor="Black"
+                    VerticalTextAlignment="Center" />
+                <Frame
+                    Padding="5,0,5,0"
+                    CornerRadius="10"
+                    HasShadow="True"
+                    IsClippedToBounds="True">
+                    <Entry Text="{Binding Adresse}" />
+                </Frame>
+                <Label
+                    Padding="5,0,5,0"
+                    FontSize="Medium"
+                    Text="Téléphone"
+                    TextColor="Black"
+                    VerticalTextAlignment="Center" />
+                <Frame
+                    Padding="5,0,5,0"
+                    CornerRadius="10"
+                    HasShadow="True"
+                    IsClippedToBounds="True">
+                    <Entry Text="{Binding Telephone}" />
+                </Frame>
+                <Label
+                    Padding="5,0,5,0"
+                    FontSize="Medium"
+                    Text="Courriel"
+                    TextColor="Black"
+                    VerticalTextAlignment="Center" />
+                <Frame
+                    Padding="5,0,5,0"
+                    CornerRadius="10"
+                    HasShadow="True"
+                    IsClippedToBounds="True">
+                    <Entry Text="{Binding Courriel}" />
+                </Frame>
+                <Label
+                    Padding="5,0,5,0"
+                    FontSize="Medium"
+                    Text="Carte Crédit"
+                    TextColor="Black"
+                    VerticalTextAlignment="Center" />
+                <Frame
+                    Padding="5,0,5,0"
+                    CornerRadius="10"
+                    HasShadow="True"
+                    IsClippedToBounds="True">
+                    <Entry Text="{Binding CarteCredit}" />
+                </Frame>
+                <Grid Margin="0,10,0,0" ColumnDefinitions="*,*">
+                    <Button
+                        Command="{Binding PayementCancelCmd}"
+                        Grid.Column="0"
+                        BackgroundColor="Gray"
+                        Style="{StaticResource ButtonStyle}"
+                        Text="Annuler" />
+                    <Button
+                        Command="{Binding PayementConfirmCmd}"
+                        Grid.Column="1"
+                        Style="{StaticResource ButtonStyle}"
+                        Text="Payer" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

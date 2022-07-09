@@ -13,7 +13,7 @@
                 HorizontalTextAlignment="Center"
                 Text="{Binding Total, StringFormat='Sous-total ${0}'}"
                 TextColor="#333" />
-            <Button Style="{StaticResource ButtonStyle}" Text="{Binding PanierContentsList.Count, StringFormat='Passer la commande ({0} article)'}" />
+            <Button Command="{Binding NavigateToPaymentCmd}" Style="{StaticResource ButtonStyle}" Text="{Binding PanierContentsList.Count, StringFormat='Passer la commande ({0} article)'}" />
         </StackLayout>
         <CollectionView ItemsSource="{Binding PanierContentsList}">
             <CollectionView.EmptyView>

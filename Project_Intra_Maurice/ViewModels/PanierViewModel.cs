@@ -11,6 +11,7 @@ using Xamarin.Forms;
 using System.Linq;
 using Xamarin.Forms.Internals;
 using System.Threading.Tasks;
+using Project_Intra_Maurice.Views;
 
 namespace Project_Intra_Maurice.ViewModels
 {
@@ -20,11 +21,18 @@ namespace Project_Intra_Maurice.ViewModels
         public double Total { get; set; }
 
         public Command RemoveItemFromCartCmd { get; private set; }
+        public Command NavigateToPaymentCmd { get; private set; }
 
         public PanierViewModel()
         {
             this.PanierContentsList = new ObservableCollection<SmartDevice>();
             this.RemoveItemFromCartCmd = new Command(RemoveItemFromCart);
+            this.NavigateToPaymentCmd = new Command(NavigateToPayment);
+        }
+
+        private void NavigateToPayment(object obj)
+        {
+            Shell.Current.GoToAsync(nameof(FacturePage));
         }
 
         private async void RemoveItemFromCart(object obj)
