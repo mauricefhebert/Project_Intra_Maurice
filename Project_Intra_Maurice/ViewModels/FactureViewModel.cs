@@ -50,13 +50,18 @@ namespace Project_Intra_Maurice.ViewModels
             App.Context.InsertFactureAsync(facture);
             App.panier.ClearPanier();
 
-            await Shell.Current.GoToAsync(nameof(AccueilPage));
-;            
+            //await Shell.Current.GoToAsync(nameof(AccueilPage));          
+            await Shell.Current.GoToAsync("..");
         }
 
         private void PayementCancel(object obj)
         {
-
+            this.Prenom = string.Empty; 
+            this.Nom = string.Empty; 
+            this.Adresse = string.Empty; 
+            this.Courriel = string.Empty; 
+            this.CarteCredit = string.Empty;
+            Shell.Current.GoToAsync("..");
         }
     }
 }

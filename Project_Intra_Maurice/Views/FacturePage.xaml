@@ -2,98 +2,45 @@
 <ContentPage
     x:Class="Project_Intra_Maurice.Views.FacturePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="15">
-                <Label
-                    Padding="5,0,5,0"
-                    FontSize="Medium"
-                    Text="Prénom"
-                    TextColor="Black"
-                    VerticalTextAlignment="Center" />
-                <Frame
-                    Padding="5,0,5,0"
-                    CornerRadius="10"
-                    HasShadow="True"
-                    IsClippedToBounds="True">
+                <Label Style="{StaticResource FactureLabelStyle}" Text="Prénom" />
+                <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding Prenom}" />
                 </Frame>
-                <Label
-                    Padding="5,0,5,0"
-                    FontSize="Medium"
-                    Text="Nom"
-                    TextColor="Black"
-                    VerticalTextAlignment="Center" />
-                <Frame
-                    Padding="5,0,5,0"
-                    CornerRadius="10"
-                    HasShadow="True"
-                    IsClippedToBounds="True">
+                <Label Style="{StaticResource FactureLabelStyle}" Text="Nom" />
+                <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding Nom}" />
                 </Frame>
-                <Label
-                    Padding="5,0,5,0"
-                    FontSize="Medium"
-                    Text="Adresse"
-                    TextColor="Black"
-                    VerticalTextAlignment="Center" />
-                <Frame
-                    Padding="5,0,5,0"
-                    CornerRadius="10"
-                    HasShadow="True"
-                    IsClippedToBounds="True">
+                <Label Style="{StaticResource FactureLabelStyle}" Text="Adresse" />
+                <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding Adresse}" />
                 </Frame>
-                <Label
-                    Padding="5,0,5,0"
-                    FontSize="Medium"
-                    Text="Téléphone"
-                    TextColor="Black"
-                    VerticalTextAlignment="Center" />
-                <Frame
-                    Padding="5,0,5,0"
-                    CornerRadius="10"
-                    HasShadow="True"
-                    IsClippedToBounds="True">
+                <Label Style="{StaticResource FactureLabelStyle}" Text="Téléphone" />
+                <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding Telephone}" />
                 </Frame>
-                <Label
-                    Padding="5,0,5,0"
-                    FontSize="Medium"
-                    Text="Courriel"
-                    TextColor="Black"
-                    VerticalTextAlignment="Center" />
-                <Frame
-                    Padding="5,0,5,0"
-                    CornerRadius="10"
-                    HasShadow="True"
-                    IsClippedToBounds="True">
+                <Label Style="{StaticResource FactureLabelStyle}" Text="Courriel" />
+                <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding Courriel}" />
                 </Frame>
-                <Label
-                    Padding="5,0,5,0"
-                    FontSize="Medium"
-                    Text="Carte Crédit"
-                    TextColor="Black"
-                    VerticalTextAlignment="Center" />
-                <Frame
-                    Padding="5,0,5,0"
-                    CornerRadius="10"
-                    HasShadow="True"
-                    IsClippedToBounds="True">
+                <Label Style="{StaticResource FactureLabelStyle}" Text="Carte Crédit" />
+                <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding CarteCredit}" />
                 </Frame>
                 <Grid Margin="0,10,0,0" ColumnDefinitions="*,*">
                     <Button
-                        Command="{Binding PayementCancelCmd}"
                         Grid.Column="0"
                         BackgroundColor="Gray"
+                        Command="{Binding PayementCancelCmd}"
                         Style="{StaticResource ButtonStyle}"
                         Text="Annuler" />
                     <Button
-                        Command="{Binding PayementConfirmCmd}"
                         Grid.Column="1"
+                        Command="{Binding PayementConfirmCmd}"
                         Style="{StaticResource ButtonStyle}"
                         Text="Payer" />
                 </Grid>

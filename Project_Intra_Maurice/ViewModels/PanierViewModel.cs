@@ -27,12 +27,18 @@ namespace Project_Intra_Maurice.ViewModels
         {
             this.PanierContentsList = new ObservableCollection<SmartDevice>();
             this.RemoveItemFromCartCmd = new Command(RemoveItemFromCart);
-            this.NavigateToPaymentCmd = new Command(NavigateToPayment);
+            this.NavigateToPaymentCmd = new Command(NavigateToPayment, ValidateNavigation);
+            this.PropertyChanged += (_, __) => NavigateToPaymentCmd.ChangeCanExecute();
         }
 
         private void NavigateToPayment(object obj)
         {
             Shell.Current.GoToAsync(nameof(FacturePage));
+        }
+
+        private bool ValidateNavigation(object arg)
+        {
+            return App.panier.CountPanier() > 0 ? true : false;
         }
 
         private async void RemoveItemFromCart(object obj)
