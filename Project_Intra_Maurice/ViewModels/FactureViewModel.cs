@@ -3,6 +3,7 @@ using Project_Intra_Maurice.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using Xamarin.Forms;
 
 namespace Project_Intra_Maurice.ViewModels
@@ -21,10 +22,12 @@ namespace Project_Intra_Maurice.ViewModels
         private bool telephoneValide;
         private bool courrielValide;
         private bool carteCreditValide;
+        private string telephone;
 
         public string Nom { get => nom; set { nom = value; OnPropertyChanged(); } }
         public string Prenom { get => prenom; set { prenom = value; OnPropertyChanged(); } }
         public string Adresse { get => adresse; set { adresse = value; OnPropertyChanged(); } }
+        public string Telephone { get => telephone; set { telephone = value; OnPropertyChanged(); } }
         public string Courriel { get => courriel; set { courriel = value; OnPropertyChanged(); } }
         public string CarteCredit { get => carteCredit; set { carteCredit = value; OnPropertyChanged(); } }
         public double Montant { get => montant; set { montant = value; OnPropertyChanged(); } }
@@ -48,7 +51,15 @@ namespace Project_Intra_Maurice.ViewModels
 
         private bool CanConfirmPayement(object arg)
         {
-            throw new NotImplementedException();
+            return !string.IsNullOrEmpty(this.Prenom)
+                && !string.IsNullOrEmpty(this.Nom)
+                && !string.IsNullOrEmpty(this.Adresse)
+                && !string.IsNullOrEmpty(this.Telephone)
+                && Regex.IsMatch(this.Telephone, @"^\d{3} \d{3}-\d{4}$")
+                && !string.IsNullOrEmpty(this.Courriel)
+                && Regex.IsMatch(this.Courriel, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$")
+                && !string.IsNullOrEmpty(this.CarteCredit)
+                && Regex.IsMatch(this.CarteCredit, @"^\d{14,16}$");
         }
 
         private async void PayementConfirm(object obj)
@@ -62,6 +73,7 @@ namespace Project_Intra_Maurice.ViewModels
                 Prenom = this.Prenom,
                 Nom = this.Nom,
                 Adresse = this.Adresse,
+                Telephone = this.Telephone,
                 Courriel = this.Courriel,
                 CarteCredit = this.CarteCredit,
                 Montant = this.Montant,
@@ -79,6 +91,7 @@ namespace Project_Intra_Maurice.ViewModels
             this.Prenom = string.Empty;
             this.Nom = string.Empty;
             this.Adresse = string.Empty;
+            this.Telephone = string.Empty;
             this.Courriel = string.Empty;
             this.CarteCredit = string.Empty;
             Shell.Current.GoToAsync("..");

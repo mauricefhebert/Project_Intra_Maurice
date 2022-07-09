@@ -12,7 +12,7 @@
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding Prenom}">
                         <Entry.Behaviors>
-                            <xct:RequiredStringValidationBehavior IsValid="{Binding PrenomValide, Converter={StaticResource invertBoolConverter}}" />
+                            <xct:RequiredStringValidationBehavior IsValid="{Binding PrenomValide}" />
                         </Entry.Behaviors>
                     </Entry>
                 </Frame>
@@ -25,7 +25,7 @@
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding Nom}">
                         <Entry.Behaviors>
-                            <xct:RequiredStringValidationBehavior IsValid="{Binding NomValide, Converter={StaticResource invertBoolConverter}}" />
+                            <xct:RequiredStringValidationBehavior IsValid="{Binding NomValide}" />
                         </Entry.Behaviors>
                     </Entry>
                 </Frame>
@@ -38,7 +38,7 @@
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding Adresse}">
                         <Entry.Behaviors>
-                            <xct:RequiredStringValidationBehavior IsValid="{Binding AdresseValide, Converter={StaticResource invertBoolConverter}}" />
+                            <xct:RequiredStringValidationBehavior IsValid="{Binding AdresseValide}" />
                         </Entry.Behaviors>
                     </Entry>
                 </Frame>
@@ -71,7 +71,7 @@
                 <Label
                     IsVisible="{Binding CourrielValide}"
                     Style="{StaticResource InvalidStyle}"
-                    Text="Le courriel n'est pas un format valide" />
+                    Text="Le courriel n'est pas un format valide ex: example@courriel.com" />
 
                 <Label Style="{StaticResource FactureLabelStyle}" Text="Carte Crédit" />
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
@@ -86,7 +86,7 @@
                     Style="{StaticResource InvalidStyle}"
                     Text="La carte de credit n'est pas un format valid dois contenir 14 a 16 chiffre" />
 
-                <Grid Margin="0,10,0,0" ColumnDefinitions="*,*">
+                <Grid Margin="0,10,0,20" ColumnDefinitions="*,*">
                     <Button
                         Grid.Column="0"
                         BackgroundColor="Gray"
