@@ -40,9 +40,15 @@ namespace Project_Intra_Maurice.ViewModels
         public Command PayementCancelCmd { get; private set; }
         public FactureViewModel()
         {
-            this.PayementConfirmCmd = new Command(PayementConfirm);
+            this.PayementConfirmCmd = new Command(PayementConfirm, CanConfirmPayement);
             this.PayementCancelCmd = new Command(PayementCancel);
             this.Montant = App.panier.GetTotal();
+            this.PropertyChanged += (_,__) => PayementConfirmCmd.ChangeCanExecute();
+        }
+
+        private bool CanConfirmPayement(object arg)
+        {
+            throw new NotImplementedException();
         }
 
         private async void PayementConfirm(object obj)
