@@ -7,30 +7,85 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="15">
+
                 <Label Style="{StaticResource FactureLabelStyle}" Text="Prénom" />
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
-                    <Entry Text="{Binding Prenom}" />
+                    <Entry Text="{Binding Prenom}">
+                        <Entry.Behaviors>
+                            <xct:RequiredStringValidationBehavior IsValid="{Binding PrenomValide, Converter={StaticResource invertBoolConverter}}" />
+                        </Entry.Behaviors>
+                    </Entry>
                 </Frame>
+                <Label
+                    IsVisible="{Binding PrenomValide}"
+                    Style="{StaticResource InvalidStyle}"
+                    Text="Le Prenom est obligatoire" />
+
                 <Label Style="{StaticResource FactureLabelStyle}" Text="Nom" />
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
-                    <Entry Text="{Binding Nom}" />
+                    <Entry Text="{Binding Nom}">
+                        <Entry.Behaviors>
+                            <xct:RequiredStringValidationBehavior IsValid="{Binding NomValide, Converter={StaticResource invertBoolConverter}}" />
+                        </Entry.Behaviors>
+                    </Entry>
                 </Frame>
+                <Label
+                    IsVisible="{Binding NomValide}"
+                    Style="{StaticResource InvalidStyle}"
+                    Text="Le Nom est obligatoire" />
+
                 <Label Style="{StaticResource FactureLabelStyle}" Text="Adresse" />
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
-                    <Entry Text="{Binding Adresse}" />
+                    <Entry Text="{Binding Adresse}">
+                        <Entry.Behaviors>
+                            <xct:RequiredStringValidationBehavior IsValid="{Binding AdresseValide, Converter={StaticResource invertBoolConverter}}" />
+                        </Entry.Behaviors>
+                    </Entry>
                 </Frame>
+                <Label
+                    IsVisible="{Binding AdresseValide}"
+                    Style="{StaticResource InvalidStyle}"
+                    Text="L'adresse est obligatoire" />
+
                 <Label Style="{StaticResource FactureLabelStyle}" Text="Téléphone" />
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
-                    <Entry Text="{Binding Telephone}" />
+                    <Entry Text="{Binding Telephone}">
+                        <Entry.Behaviors>
+                            <xct:TextValidationBehavior IsValid="{Binding TelephoneValide, Converter={StaticResource invertBoolConverter}}" RegexPattern="^\d{3} \d{3}-\d{4}$" />
+                        </Entry.Behaviors>
+                    </Entry>
                 </Frame>
+                <Label
+                    IsVisible="{Binding TelephoneValide}"
+                    Style="{StaticResource InvalidStyle}"
+                    Text="Le numero de telephone n'est pas un format valide ex: 555 555-5555" />
+
                 <Label Style="{StaticResource FactureLabelStyle}" Text="Courriel" />
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
-                    <Entry Text="{Binding Courriel}" />
+                    <Entry Text="{Binding Courriel}">
+                        <Entry.Behaviors>
+                            <xct:EmailValidationBehavior IsValid="{Binding CourrielValide, Converter={StaticResource invertBoolConverter}}" />
+                        </Entry.Behaviors>
+                    </Entry>
                 </Frame>
+                <Label
+                    IsVisible="{Binding CourrielValide}"
+                    Style="{StaticResource InvalidStyle}"
+                    Text="Le courriel n'est pas un format valide" />
+
                 <Label Style="{StaticResource FactureLabelStyle}" Text="Carte Crédit" />
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
-                    <Entry Text="{Binding CarteCredit}" />
+                    <Entry Text="{Binding CarteCredit}">
+                        <Entry.Behaviors>
+                            <xct:TextValidationBehavior IsValid="{Binding CarteCreditValide, Converter={StaticResource invertBoolConverter}}" RegexPattern="^\d{14,16}$" />
+                        </Entry.Behaviors>
+                    </Entry>
                 </Frame>
+                <Label
+                    IsVisible="{Binding CarteCreditValide}"
+                    Style="{StaticResource InvalidStyle}"
+                    Text="La carte de credit n'est pas un format valid dois contenir 14 a 16 chiffre" />
+
                 <Grid Margin="0,10,0,0" ColumnDefinitions="*,*">
                     <Button
                         Grid.Column="0"

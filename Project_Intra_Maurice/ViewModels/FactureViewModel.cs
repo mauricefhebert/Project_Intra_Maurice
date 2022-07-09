@@ -15,13 +15,26 @@ namespace Project_Intra_Maurice.ViewModels
         private string courriel;
         private string carteCredit;
         private double montant;
+        private bool prenomValide;
+        private bool nomValide;
+        private bool adresseValide;
+        private bool telephoneValide;
+        private bool courrielValide;
+        private bool carteCreditValide;
 
         public string Nom { get => nom; set { nom = value; OnPropertyChanged(); } }
         public string Prenom { get => prenom; set { prenom = value; OnPropertyChanged(); } }
         public string Adresse { get => adresse; set { adresse = value; OnPropertyChanged(); } }
         public string Courriel { get => courriel; set { courriel = value; OnPropertyChanged(); } }
-        public string CarteCredit { get => carteCredit; set { carteCredit = value; OnPropertyChanged();} }
+        public string CarteCredit { get => carteCredit; set { carteCredit = value; OnPropertyChanged(); } }
         public double Montant { get => montant; set { montant = value; OnPropertyChanged(); } }
+        public bool PrenomValide { get => prenomValide; set { prenomValide = value; OnPropertyChanged(); } }
+        public bool NomValide { get => nomValide; set { nomValide = value; OnPropertyChanged(); } }
+        public bool AdresseValide { get => adresseValide; set { adresseValide = value; OnPropertyChanged(); } }
+        public bool TelephoneValide { get => telephoneValide; set { telephoneValide = value; OnPropertyChanged(); } }
+        public bool CourrielValide { get => courrielValide; set { courrielValide = value; OnPropertyChanged(); } }
+        public bool CarteCreditValide { get => carteCreditValide; set { carteCreditValide = value; OnPropertyChanged(); } }
+
 
         public Command PayementConfirmCmd { get; private set; }
         public Command PayementCancelCmd { get; private set; }
@@ -34,6 +47,7 @@ namespace Project_Intra_Maurice.ViewModels
 
         private async void PayementConfirm(object obj)
         {
+
             var res = await Application.Current.MainPage.DisplayAlert("Confirmation", "Voulez-vous passez la commande?", "Oui", "Non");
             if (!res) return;
 
@@ -56,10 +70,10 @@ namespace Project_Intra_Maurice.ViewModels
 
         private void PayementCancel(object obj)
         {
-            this.Prenom = string.Empty; 
-            this.Nom = string.Empty; 
-            this.Adresse = string.Empty; 
-            this.Courriel = string.Empty; 
+            this.Prenom = string.Empty;
+            this.Nom = string.Empty;
+            this.Adresse = string.Empty;
+            this.Courriel = string.Empty;
             this.CarteCredit = string.Empty;
             Shell.Current.GoToAsync("..");
         }
