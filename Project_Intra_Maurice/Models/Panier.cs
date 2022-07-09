@@ -35,6 +35,7 @@ namespace Project_Intra_Maurice.Models
         public void ClearPanier()
         {
             this.content.Clear();
+            MessagingCenter.Send(this, "update counter", this.CountPanier());
         }
         public int CountPanier()
         {

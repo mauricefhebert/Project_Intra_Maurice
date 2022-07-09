@@ -48,8 +48,10 @@ namespace Project_Intra_Maurice.ViewModels
             };
 
             App.Context.InsertFactureAsync(facture);
+            App.panier.ClearPanier();
 
-            Shell.Current.GoToAsync(nameof(AccueilPage));
+            await Shell.Current.GoToAsync(nameof(AccueilPage));
+;            
         }
 
         private void PayementCancel(object obj)
