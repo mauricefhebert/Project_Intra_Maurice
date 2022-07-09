@@ -27,6 +27,7 @@ namespace Project_Intra_Maurice.ViewModels
             App.panier.AddProduct(obj as SmartDevice);
         }
 
+        //Charge la liste des appareil selon le type d'appareil
         public async void RefreshList()
         {
             await App.Context.LoadItem(SmartDevices, "Tablette");

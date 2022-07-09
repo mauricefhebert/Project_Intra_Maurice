@@ -10,7 +10,7 @@ namespace Project_Intra_Maurice.Models
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Modele { get; set; }
-        public string Farbiquant { get; set; }
+        public string Fabriquant { get; set; }
         public string Type { get; set; }
         public string Platform { get; set; }
         public double Prix { get; set; }

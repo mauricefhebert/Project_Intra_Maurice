@@ -49,6 +49,8 @@ namespace Project_Intra_Maurice.ViewModels
             this.PropertyChanged += (_,__) => PayementConfirmCmd.ChangeCanExecute();
         }
 
+        //Fait la validation pour la confirmation du payment si une des validation retourn false desactive le boutton
+        //Si tous les validation passe active le boutton de confirmation de payment
         private bool CanConfirmPayement(object arg)
         {
             return !string.IsNullOrEmpty(this.Prenom)
@@ -81,20 +83,22 @@ namespace Project_Intra_Maurice.ViewModels
 
             App.Context.InsertFactureAsync(facture);
             App.panier.ClearPanier();
-
-            //await Shell.Current.GoToAsync(nameof(AccueilPage));          
+         
             await Shell.Current.GoToAsync("..");
         }
 
-        private void PayementCancel(object obj)
+        private async void PayementCancel(object obj)
         {
+            var res = await Application.Current.MainPage.DisplayAlert("Annulation", "Voulez-vous annuler la commande?", "Oui", "Non");
+            if (!res) return;
+
             this.Prenom = string.Empty;
             this.Nom = string.Empty;
             this.Adresse = string.Empty;
             this.Telephone = string.Empty;
             this.Courriel = string.Empty;
             this.CarteCredit = string.Empty;
-            Shell.Current.GoToAsync("..");
+            await Shell.Current.GoToAsync("..");
         }
     }
 }

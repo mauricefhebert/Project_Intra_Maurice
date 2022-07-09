@@ -16,8 +16,8 @@
         </Tab>
 
         <Tab Title="Magasiner" Icon="store.ico">
-            <ShellContent Title="Telephone" ContentTemplate="{DataTemplate local:TelephoneDevicePage}" />
-            <ShellContent Title="Tabelette" ContentTemplate="{DataTemplate local:TabletteDevicePage}" />
+            <ShellContent Title="Téléphone" ContentTemplate="{DataTemplate local:TelephoneDevicePage}" />
+            <ShellContent Title="Tablette" ContentTemplate="{DataTemplate local:TabletteDevicePage}" />
             <ShellContent Title="Montre Intelligente" ContentTemplate="{DataTemplate local:MontreIntelligentePage}" />
         </Tab>
 
