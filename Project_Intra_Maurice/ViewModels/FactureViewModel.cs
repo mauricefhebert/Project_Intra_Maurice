@@ -81,7 +81,7 @@ namespace Project_Intra_Maurice.ViewModels
                 Montant = this.Montant,
             };
 
-            App.Context.InsertFactureAsync(facture);
+            //App.Context.InsertFactureAsync(facture);
             App.panier.ClearPanier();
          
             await Shell.Current.GoToAsync("..");

@@ -9,15 +9,14 @@ namespace Project_Intra_Maurice
 {
     public partial class App : Application
     {
-        private static DbContext context;
         public static Panier panier;
-        public static DbContext Context => context;
+        public static DbContext Context { get; set; }
         public App()
         {
             InitializeComponent();
+            Context = new DbContext();
             panier = new Panier();
             MainPage = new AppShell();
-            context = new DbContext("DbSmartDevice.db3");
         }
 
         protected override void OnStart()
