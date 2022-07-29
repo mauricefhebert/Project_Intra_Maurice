@@ -3,16 +3,17 @@
     x:Class="Project_Intra_Maurice.Views.FacturePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:Project_Intra_Maurice.ViewModels"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Margin="15">
+            <StackLayout Margin="15" x:DataType="viewModels:FactureViewModel">
 
                 <Label Style="{StaticResource FactureLabelStyle}" Text="Prénom" />
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding Prenom}">
                         <Entry.Behaviors>
-                            <xct:RequiredStringValidationBehavior IsValid="{Binding PrenomValide}" />
+                            <xct:RequiredStringValidationBehavior Flags="ValidateOnUnfocusing" IsValid="{Binding PrenomValide}" />
                         </Entry.Behaviors>
                     </Entry>
                 </Frame>
@@ -25,7 +26,7 @@
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding Nom}">
                         <Entry.Behaviors>
-                            <xct:RequiredStringValidationBehavior IsValid="{Binding NomValide}" />
+                            <xct:RequiredStringValidationBehavior Flags="ValidateOnUnfocusing" IsValid="{Binding NomValide}" />
                         </Entry.Behaviors>
                     </Entry>
                 </Frame>
@@ -38,7 +39,7 @@
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding Adresse}">
                         <Entry.Behaviors>
-                            <xct:RequiredStringValidationBehavior IsValid="{Binding AdresseValide}" />
+                            <xct:RequiredStringValidationBehavior Flags="ValidateOnUnfocusing" IsValid="{Binding AdresseValide}" />
                         </Entry.Behaviors>
                     </Entry>
                 </Frame>
@@ -51,7 +52,10 @@
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding Telephone}">
                         <Entry.Behaviors>
-                            <xct:TextValidationBehavior IsValid="{Binding TelephoneValide, Converter={StaticResource invertBoolConverter}}" RegexPattern="^\d{3} \d{3}-\d{4}$" />
+                            <xct:TextValidationBehavior
+                                Flags="ValidateOnUnfocusing"
+                                IsValid="{Binding TelephoneValide, Converter={StaticResource invertBoolConverter}}"
+                                RegexPattern="^\d{3} \d{3}-\d{4}$" />
                         </Entry.Behaviors>
                     </Entry>
                 </Frame>
@@ -64,7 +68,7 @@
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding Courriel}">
                         <Entry.Behaviors>
-                            <xct:EmailValidationBehavior IsValid="{Binding CourrielValide, Converter={StaticResource invertBoolConverter}}" />
+                            <xct:EmailValidationBehavior Flags="ValidateOnUnfocusing" IsValid="{Binding CourrielValide, Converter={StaticResource invertBoolConverter}}" />
                         </Entry.Behaviors>
                     </Entry>
                 </Frame>
@@ -77,7 +81,10 @@
                 <Frame Style="{StaticResource FactureFrameForEntryStyle}">
                     <Entry Text="{Binding CarteCredit}">
                         <Entry.Behaviors>
-                            <xct:TextValidationBehavior IsValid="{Binding CarteCreditValide, Converter={StaticResource invertBoolConverter}}" RegexPattern="^\d{14,16}$" />
+                            <xct:TextValidationBehavior
+                                Flags="ValidateOnUnfocusing"
+                                IsValid="{Binding CarteCreditValide, Converter={StaticResource invertBoolConverter}}"
+                                RegexPattern="^\d{14,16}$" />
                         </Entry.Behaviors>
                     </Entry>
                 </Frame>
